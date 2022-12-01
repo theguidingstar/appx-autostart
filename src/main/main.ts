@@ -14,6 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import { WindowsStoreAutoLaunch } from 'electron-winstore-auto-launch';
 
 class AppUpdater {
   constructor() {
@@ -112,6 +113,12 @@ const createWindow = async () => {
   new AppUpdater();
 };
 
+WindowsStoreAutoLaunch.getStatus().then((status) => {
+  if (status !== 0 && status != 1) {
+    WindowsStoreAutoLaunch.enable();
+  }
+});
+
 /**
  * Add event listeners...
  */
@@ -135,3 +142,11 @@ app
     });
   })
   .catch(console.log);
+
+ipcMain.handle('enable-autostart', async () => {
+  WindowsStoreAutoLaunch.enable();
+});
+
+ipcMain.handle('disable-autostart', async () => {
+  WindowsStoreAutoLaunch.disable();
+});
