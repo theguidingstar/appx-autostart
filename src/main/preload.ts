@@ -19,5 +19,11 @@ contextBridge.exposeInMainWorld('electron', {
     once(channel: Channels, func: (...args: unknown[]) => void) {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
+    turnOnTheAutoStart() {
+      return ipcRenderer.invoke("enable-autostart");
+    },
+    turnOffTheAutoStart() {
+      return ipcRenderer.invoke("disable-autostart");
+    }
   },
 });

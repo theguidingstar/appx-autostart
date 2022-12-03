@@ -1,0 +1,6 @@
+<desktop:Extension
+          Category="windows.startupTask"
+          Executable="app\ElectronReact.exe"
+          EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask TaskId="ElectronStartup" Enabled="true" DisplayName="ElectronReact" />
+        </desktop:Extension>

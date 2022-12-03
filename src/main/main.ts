@@ -144,9 +144,9 @@ app
   .catch(console.log);
 
 ipcMain.handle('enable-autostart', async () => {
-  WindowsStoreAutoLaunch.enable();
+  return WindowsStoreAutoLaunch.enable();
 });
 
 ipcMain.handle('disable-autostart', async () => {
-  WindowsStoreAutoLaunch.disable();
+  return WindowsStoreAutoLaunch.disable();
 });
