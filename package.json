@@ -229,11 +229,11 @@
         "nsis",
         "appx"
       ],
-      "certificateFile" : "yash.pfx",
+      "certificateFile": "yash.pfx",
       "certificatePassword": "Password"
     },
     "appx": {
-      "publisher":"CN=Yash",
+      "publisher": "CN=Yash",
       "customExtensionsPath": "../../customextension.xml"
     },
     "linux": {
