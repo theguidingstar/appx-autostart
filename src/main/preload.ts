@@ -24,6 +24,9 @@ contextBridge.exposeInMainWorld('electron', {
     },
     turnOffTheAutoStart() {
       return ipcRenderer.invoke("disable-autostart");
+    },
+    getArgument() {
+      return ipcRenderer.invoke("get-autostart-status");
     }
   },
 });

@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 
 export default function App() {
@@ -10,6 +11,15 @@ export default function App() {
     await window.electron.ipcRenderer.turnOffTheAutoStart();
     alert('Auto Start Disabled');
   };
+
+  const checkAutoStart = async () => {
+    const isAutoStartEnabled = await window.electron.ipcRenderer.getArgument();
+    console.log('isAutoStartEnabled', isAutoStartEnabled);
+  }
+
+  React.useEffect(() => {
+    checkAutoStart();
+  }, [])
   return (
     <div>
       <h1>AppX Auto Start</h1>

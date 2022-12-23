@@ -150,3 +150,7 @@ ipcMain.handle('enable-autostart', async () => {
 ipcMain.handle('disable-autostart', async () => {
   return WindowsStoreAutoLaunch.disable();
 });
+
+ipcMain.handle('get-autostart-status', async () => {
+  return process.argv;
+});
